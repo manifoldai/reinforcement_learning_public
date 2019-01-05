@@ -62,7 +62,7 @@ docker-compose
 2. Run `./start.sh` in the project root folder. This starts a docker container with correct port configuration.
 3. Run `docker ps` at command line. This prints the port forwarding information. 
 4. The output looks something like <image src=docker_ps_sc.png></image>
-4. Go to https:/localhost/port_number where port_number is where 8888 is mapped to. In the above example, it is 32784.
+4. Go to https://localhost/port_number where port_number is where 8888 is mapped to. In the above example, it is 32784.
 5. You can access the notebooks from that url.
 6. For the curious, we also mapped tensorboard port (6006) to a port. (In the above example, it is mapped to 32785 on your local machine). So if tensorboard is running inside your container, you could access it at https://localhost/32785
 6. If you want to exec into the container and run code there, do `docker exec -it container_id /bin/bash` where container_id is from the output of `docker ps` command
