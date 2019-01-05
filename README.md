@@ -59,7 +59,7 @@ docker-compose
 
 # Setup
 1. Install docker and docker-compose for your platfrom
-2. Run `./start.sh` in the project root folder. This starts a docker container with correct port configuration.
+2. Clone this repo and run `./start.sh` in the project root folder. This starts a docker container with correct port configuration.
 3. Run `docker ps` at command line. This prints the port forwarding information. 
 4. The output looks something like <image src=docker_ps_sc.png></image>
 4. Go to https://localhost/port_number where port_number is where 8888 is mapped to. In the above example, it is 32784.
