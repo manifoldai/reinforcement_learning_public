@@ -1,8 +1,5 @@
 """
-Short description - This module ...
-
-func1: Function to
-func2: Function to
+Short description - This module simulates a 10 armed bandit problem using a simple tabular actioin-value method
 
 :copyright: 2018 Manifold Inc.
 :author: Rajendra Koppula <rkoppula@manifold.ai>
@@ -56,7 +53,7 @@ class Agent():
         # At each step, make a decision to take a random action or a greedy action
         # Greedy => select the action with the highest estimate of the Expected return
         for step in range(n_steps):
-            if df.loc[step, "e"] == 1:
+            if df.loc[step, "e"] == 0:
                 # greedy policy
                 # use history upto step-1
                 action = Agent.get_greedy_action(df.loc[:step-1])
@@ -86,7 +83,7 @@ def play_wrapper(name, env, agent):
     # Compute average reward recieved up until every step
     df[avg_r_col] = df.r.cumsum()/(df.index + 1)
     df = df.rename(columns={"a":action_col})
-    df = df[columns]
+    # df = df[columns]
 
     return df
 
@@ -95,7 +92,8 @@ if __name__ == "__main__":
     env = gym.make("BanditTenArmedGaussian-v0")
     env.reset()
 
-    agent = Agent(env, 1)
+    # epsilon = 0 => No exploration, always greedy
+    agent = Agent(env, 0)
     logging.info("Training greedy agent")
     g_df = play_wrapper('greedy agent', env, agent)
 

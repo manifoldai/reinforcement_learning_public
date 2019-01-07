@@ -11,3 +11,6 @@ RUN pip install cufflinks
 RUN pip install tensorboardX
 RUN pip install gym[atari]
 RUN pip install git+https://github.com/JKCooper2/gym-bandits#egg=gym-bandits
+RUN apt-get update 
+RUN apt-get install pandoc
+RUN apt-get install texlive-xetex
